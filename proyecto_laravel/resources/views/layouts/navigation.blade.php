@@ -17,6 +17,9 @@
                 <x-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
                     {{ __('Users') }}
                 </x-nav-link>
+                <x-nav-link href="{{ route('images') }}" :active="request()->routeIs('images')">
+                    {{ __('Images') }}
+                </x-nav-link>
             </ul>
 
             <!-- Right Side Of Navbar -->
