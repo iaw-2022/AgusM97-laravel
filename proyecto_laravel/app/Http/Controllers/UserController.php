@@ -11,7 +11,6 @@ class UserController extends Controller
     public function showAll()
     {
         return view('users', [
-            'user_columns' => Schema::getColumnListing('users'),
             'users' => User::all()
         ]);
     }

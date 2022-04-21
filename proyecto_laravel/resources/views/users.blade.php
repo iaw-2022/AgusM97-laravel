@@ -5,20 +5,23 @@
         </h2>
     </x-slot>
 
-    <div class="container">
-        <table class="table">
-            <thead>
-                @foreach ($user_columns as $column)
-                    <th scope="col">{{ $column }}</th>
-                @endforeach
+    <div class="container border rounded">
+        <table class="table table-hover table-striped caption-top">
+            <caption>List of users</caption>
+            <thead class="table-dark">
+                <th class="col" scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Email verified at</th>
             </thead>
 
             <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        @foreach ($user_columns as $column)
-                            <td>{{ $user->$column }}</td>
-                        @endforeach
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->email_verified_at }}</td>
                     </tr>
                 @endforeach
             </tbody>

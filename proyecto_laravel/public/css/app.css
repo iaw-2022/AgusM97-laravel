@@ -1956,11 +1956,11 @@ progress {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
   --bs-table-striped-color: #212529;
-  --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.015);
   --bs-table-active-color: #212529;
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
   --bs-table-hover-color: #212529;
-  --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+  --bs-table-hover-bg: rgba(255, 183, 100, 0.329);
   width: 100%;
   margin-bottom: 1rem;
   color: #212529;
@@ -1978,9 +1978,10 @@ progress {
 }
 .table > thead {
   vertical-align: bottom;
+  border-bottom: 1px;
 }
 .table > :not(:first-child) {
-  border-top: 2px solid currentColor;
+  border-top: 0px;
 }
 
 .caption-top {
@@ -2105,7 +2106,7 @@ progress {
 }
 
 .table-dark {
-  --bs-table-bg: #212529;
+  --bs-table-bg: #eb971b;
   --bs-table-striped-bg: #2c3034;
   --bs-table-striped-color: #fff;
   --bs-table-active-bg: #373b3e;
