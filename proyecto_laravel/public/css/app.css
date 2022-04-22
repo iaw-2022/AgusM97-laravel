@@ -2106,7 +2106,7 @@ progress {
 }
 
 .table-dark {
-  --bs-table-bg: #eb971b;
+  --bs-table-bg: #e68b03;
   --bs-table-striped-bg: #2c3034;
   --bs-table-striped-color: #fff;
   --bs-table-active-bg: #373b3e;
@@ -3208,7 +3208,7 @@ textarea.form-control-lg {
 .btn-light {
   color: #000;
   background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  border-color: #e68b03;
 }
 .btn-light:hover {
   color: #000;
@@ -3237,8 +3237,8 @@ textarea.form-control-lg {
 
 .btn-dark {
   color: #fff;
-  background-color: #212529;
-  border-color: #212529;
+  background-color: #e68b03;
+  border-color: #e68b03;
 }
 .btn-dark:hover {
   color: #fff;
@@ -3951,6 +3951,7 @@ textarea.form-control-lg {
 .nav-link:hover, .nav-link:focus {
   color: #0a58ca;
 }
+
 .nav-link.disabled {
   color: #6c757d;
   pointer-events: none;
