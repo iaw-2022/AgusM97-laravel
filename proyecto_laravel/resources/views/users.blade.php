@@ -20,7 +20,7 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
-                        <td><img src="https://img.jakpost.net/c/2021/03/04/2021_03_04_111037_1614825725._large.jpg" class="profile-pic rounded-circle"></td>
+                        <td><x-profile-picture :user="$user"/></td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->email_verified_at }}</td>
