@@ -29,6 +29,7 @@
                 @auth
                     <x-dropdown id="settingsDropdown">
                         <x-slot name="trigger">
+                            <img src="https://img.jakpost.net/c/2021/03/04/2021_03_04_111037_1614825725._large.jpg" class="profile-pic rounded-circle">
                             {{ Auth::user()->name }}
                         </x-slot>
 

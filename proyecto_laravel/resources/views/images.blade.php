@@ -21,7 +21,7 @@
                         <td>{{ $image->id }}</td>
                         <td><img height="100px" src="data:image/gif;base64,{{ $image->file }}"></td>
                         <td>{{ $image->name }}</td>
-                        <td>{{ $image->user_id }}</td>
+                        <td>{{ $image->user->name }}</td>
                     </tr>
                 @endforeach
             </tbody>

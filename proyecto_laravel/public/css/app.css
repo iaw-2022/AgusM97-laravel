@@ -72,6 +72,14 @@
   }
 }
 
+.profile-pic {
+  object-fit: cover; /* Scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 30px;
+  width: 30px;
+  margin-right: 7%;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
