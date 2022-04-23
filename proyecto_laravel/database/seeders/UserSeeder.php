@@ -18,12 +18,14 @@ class UserSeeder extends Seeder
             'name' => 'AgusM',
             'email' => 'agus91997@gmail.com',
             'password' => bcrypt('agusm'),
+            'email_verified_at' => now(),
         ]);
 
         User::create([
             'name' => 'DiegoCM',
             'email' => 'dcm@cs.uns.edu.ar',
             'password' => bcrypt('dcm'),
+            'email_verified_at' => now(),
         ]);
     }
 }

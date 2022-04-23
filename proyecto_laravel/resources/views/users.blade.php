@@ -11,7 +11,7 @@
             <thead class="table-dark">
                 <th class="col" scope="col">ID</th>
                 <th scope="col">Picture</th>
-                <th scope="col">Name</th>
+                <th scope="col">Username</th>
                 <th scope="col">Email</th>
                 <th scope="col">Email verified at</th>
             </thead>
@@ -20,7 +20,9 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
-                        <td><x-profile-picture :user="$user"/></td>
+                        <td>
+                            <x-profile-picture :user="$user" />
+                        </td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->email_verified_at }}</td>
@@ -29,6 +31,8 @@
             </tbody>
 
         </table>
+
+        <div class="d-flex justify-content-center">{{ $users->links() }}</div>
 
     </div>
 

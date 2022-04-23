@@ -21,13 +21,14 @@
                         <td>{{ $image->id }}</td>
                         <td><img height="100px" src="data:image/gif;base64,{{ $image->file }}"></td>
                         <td>{{ $image->name }}</td>
-                        <td>{{ $image->user->name }}</td>
+                        <td>{{ $image->user_id }}</td>
                     </tr>
                 @endforeach
             </tbody>
 
         </table>
 
+        <div class="d-flex justify-content-center">{{ $images->links() }}</div>
     </div>
 
 </x-app-layout>
