@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\Image;
 
 class ImageController extends Controller
 {
     public function showAll()
     {
         return view('images', [
-            'images' => DB::table('images')->paginate(7)
+            'images' => Image::paginate(7)
         ]);
     }
 }

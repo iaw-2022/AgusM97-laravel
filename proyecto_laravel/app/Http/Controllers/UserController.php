@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class UserController extends Controller
 {
     public function showAll()
     {
         return view('users', [
-            'users' => DB::table('users')->paginate(15)
+            'users' => User::paginate(15)
         ]);
     }
 }
