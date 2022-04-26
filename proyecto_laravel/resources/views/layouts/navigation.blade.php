@@ -4,7 +4,8 @@
         <a class="navbar-brand" href="/">
             <x-application-logo width="36" />
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -29,8 +30,8 @@
                 @auth
                     <x-dropdown id="settingsDropdown">
                         <x-slot name="trigger">
-                            <x-profile-picture :user="Auth::user()"/>
-                            {{ Auth::user()->name }}
+                            <x-profile-picture :user="Auth::user()" />
+                            {{ Auth::user()->username }}
                         </x-slot>
 
                         <x-slot name="content">
@@ -38,9 +39,8 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-dropdown-link :href="route('logout')"
-                                                 onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
