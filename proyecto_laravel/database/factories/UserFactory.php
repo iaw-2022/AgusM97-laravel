@@ -14,10 +14,10 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $image_link = file_get_contents($this->faker->imageUrl(100,100));
+        $image_link = file_get_contents($this->faker->imageUrl(100, 100));
         $enc_data = base64_encode($image_link);
         return [
-            'name' => $this->faker->userName(),
+            'username' => $this->faker->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

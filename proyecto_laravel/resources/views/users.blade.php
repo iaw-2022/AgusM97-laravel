@@ -23,7 +23,7 @@
                         <td>
                             <x-profile-picture :user="$user" />
                         </td>
-                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->email_verified_at }}</td>
                     </tr>

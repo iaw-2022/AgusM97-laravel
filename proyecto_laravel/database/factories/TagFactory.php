@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ImageFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,11 +13,8 @@ class ImageFactory extends Factory
      */
     public function definition()
     {
-        $image_link = file_get_contents($this->faker->imageUrl());
-        $enc_data = base64_encode($image_link);
         return [
-            'user_id' => User::factory(),
-            'file' => $enc_data,
+            'name' => $this->faker->unique()->word(),
         ];
     }
 }

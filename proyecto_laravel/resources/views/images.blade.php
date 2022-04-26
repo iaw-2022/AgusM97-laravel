@@ -11,8 +11,8 @@
             <thead class="table-dark">
                 <th class="col" scope="col">ID</th>
                 <th scope="col">Image</th>
-                <th scope="col">Name</th>
                 <th scope="col">User</th>
+                <th scope="col">Tags</th>
             </thead>
 
             <tbody>
@@ -20,8 +20,12 @@
                     <tr>
                         <td>{{ $image->id }}</td>
                         <td><img height="100px" src="data:image/gif;base64,{{ $image->file }}"></td>
-                        <td>{{ $image->name }}</td>
-                        <td>{{ $image->user->name }}</td>
+                        <td>{{ $image->user->username }}</td>
+                        <td>
+                            @foreach ($image->tags as $tag)
+                                <span class="badge rounded-pill bg-primary">{{ $tag->name }}</span>
+                            @endforeach
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
