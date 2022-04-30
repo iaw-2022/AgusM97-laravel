@@ -14,6 +14,7 @@
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
                 <th scope="col">Email verified at</th>
+                <th scope="col"></th>
             </thead>
 
             <tbody>
@@ -26,6 +27,13 @@
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->email_verified_at }}</td>
+                        <td>
+                            <div class="btn-group option-buttons" role="group" aria-label="User options">
+                                <button type="button" class="btn btn-secondary"><i
+                                        class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

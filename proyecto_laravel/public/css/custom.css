@@ -1,0 +1,7 @@
+.option-buttons {
+    visibility: hidden;
+}
+
+.table > tbody > tr:hover > td > .option-buttons {
+    visibility: visible;
+}
