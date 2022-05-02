@@ -12,4 +12,17 @@ class UserController extends Controller
             'users' => User::paginate(15)
         ]);
     }
+
+    public function showUser($username)
+    {
+        return view('user', [
+            'user' => User::firstWhere('username', $username)
+        ]);
+    }
+
+    public function deleteUser($id)
+    {
+        User::destroy($id);
+        return redirect('/users');
+    }
 }

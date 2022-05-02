@@ -5,3 +5,18 @@
 .table > tbody > tr:hover > td > .option-buttons {
     visibility: visible;
 }
+
+.profile-pic {
+    object-fit: cover; /* Scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 30px;
+    width: 30px;
+    margin-right: 7%;
+}
+
+.profile-pic-big {
+    object-fit: cover; /* Scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 100px;
+    width: 100px;
+}

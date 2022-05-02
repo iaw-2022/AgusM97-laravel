@@ -15,17 +15,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth']);
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    Route::get('/', function () {
+        return view('dashboard');
+    });
 
-Route::get('/users', [UserController::class, 'showAll'])->middleware(['auth'])->name('users');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::get('/images', [ImageController::class, 'showAll'])->middleware(['auth'])->name('images');
+    Route::controller(UserController::class)->group(function () {
+
+        Route::get('/users', 'showAll')->name('users');
+
+        Route::get('/user/{username}', 'showUser')->name('user');
+
+        Route::delete('/user/{username}/delete', 'deleteUser')->name('user_delete');
+    });
+
+    Route::controller(ImageController::class)->group(function () {
+
+        Route::get('/images', 'showAll')->name('images');
+    });
+});
 
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
