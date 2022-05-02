@@ -12,4 +12,9 @@ class ImageController extends Controller
             'images' => Image::paginate(7)
         ]);
     }
+
+    public static function deleteImagesByUser($userId)
+    {
+        Image::where('user_id', $userId)->delete();
+    }
 }

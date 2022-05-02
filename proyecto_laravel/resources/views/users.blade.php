@@ -62,7 +62,7 @@
                                 </button>
                             </div>
 
-                            <!-- DELETE FROM -->
+                            <!-- DELETE FORM -->
                             <form id="form{{ $user->id }}" method="POST" action="/user/{{ $user->id }}/delete">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
