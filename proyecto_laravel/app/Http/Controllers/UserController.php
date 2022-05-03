@@ -21,10 +21,11 @@ class UserController extends Controller
         ]);
     }
 
-    public function deleteUser($id)
+    public function deleteUser($username)
     {
-        ImageController::deleteImagesByUser($id);
-        User::destroy($id);
+        $user = User::firstWhere('username', $username);
+        ImageController::deleteImagesByUser($user->id);
+        $user->delete();
         return redirect('/users');
     }
 }
