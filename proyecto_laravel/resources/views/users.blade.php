@@ -5,25 +5,9 @@
         </h2>
     </x-slot>
 
-    <!-- Modal -->
-    <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="DeleteUserModal"
-        aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Confirm delete</h5>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to delete this user?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger" onclick="submitUserDelete()">Delete</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-user-delete-confirm />
 
+    <!-- TABLE -->
     <div class="container border rounded">
         <table class="table table-hover table-striped caption-top">
             <caption>List of users</caption>
@@ -63,7 +47,8 @@
                             </div>
 
                             <!-- DELETE FORM -->
-                            <form id="form{{ $user->id }}" method="POST" action="/user/{{ $user->id }}/delete">
+                            <form id="form{{ $user->id }}" method="POST"
+                                action="/user/{{ $user->username }}/delete">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                             </form>

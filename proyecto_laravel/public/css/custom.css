@@ -14,9 +14,51 @@
     margin-right: 7%;
 }
 
-.profile-pic-big {
-    object-fit: cover; /* Scale the image */
-    object-position: center; /* Center the image within the element */
-    height: 100px;
-    width: 100px;
+.btn-secondary {
+    color: #fff;
+    background-color: #878f96;
+    border-color: #878f96;
+}
+
+/* USER PROFILE */
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #e68b03;
+}
+
+.profile-button {
+    background: #e68b03;
+    box-shadow: none;
+    border: none;
+}
+
+.profile-button:hover {
+    background: #b97105;
+}
+
+.profile-button:focus {
+    background: #e68b03;
+    box-shadow: none;
+}
+
+.profile-button:active {
+    background: #e68b03;
+    box-shadow: none;
+}
+
+.back:hover {
+    color: #e68b03;
+    cursor: pointer;
+}
+
+.labels {
+    font-size: 13px;
+}
+
+.add-experience:hover {
+    background: #ba68c8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #ba68c8;
 }

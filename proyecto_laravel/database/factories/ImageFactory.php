@@ -19,6 +19,7 @@ class ImageFactory extends Factory
         return [
             'user_id' => User::factory(),
             'file' => $enc_data,
+            'description' => $this->faker->paragraph(),
         ];
     }
 }

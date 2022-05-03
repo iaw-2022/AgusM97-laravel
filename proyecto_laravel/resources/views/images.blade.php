@@ -12,6 +12,7 @@
                 <th class="col" scope="col">ID</th>
                 <th scope="col">Image</th>
                 <th scope="col">User</th>
+                <th scope="col">Description</th>
                 <th scope="col">Tags</th>
             </thead>
 
@@ -20,7 +21,11 @@
                     <tr>
                         <td>{{ $image->id }}</td>
                         <td><img height="100px" src="data:image/gif;base64,{{ $image->file }}"></td>
-                        <td>{{ $image->user->username }}</td>
+                        <td>
+                            <a
+                                href="{{ route('user', ['username' => $image->user->username]) }}">{{ $image->user->username }}</a>
+                        </td>
+                        <td>{{ $image->description }}</td>
                         <td>
                             @foreach ($image->tags as $tag)
                                 <span class="badge rounded-pill bg-primary">{{ $tag->name }}</span>

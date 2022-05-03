@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->text('file');
+            $table->text('description');
             $table->timestamps();
         });
     }
