@@ -39,6 +39,10 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(ImageController::class)->group(function () {
 
         Route::get('/images', 'showAll')->name('images');
+
+        Route::get('/image/{id}', 'showImage')->name('image');
+
+        Route::delete('/image/{id}/delete', 'deleteImage')->name('image_delete');
     });
 });
 

@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <x-user-delete-confirm />
+    <x-delete-confirm-modal type="user" />
 
     @if (session('status'))
         <h6 class="alert alert-success">{{ session('status') }}</h6>
@@ -45,7 +45,7 @@
 
                                 <!-- DELETE BUTTON -->
                                 <button type="button" class="btn btn-danger delete-user" data-bs-toggle="modal"
-                                    data-bs-target="#deleteUserModal" onclick="confirmUserDelete({{ $user->id }})">
+                                    data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
                                     <i class="bi bi-trash3"></i>
                                 </button>
                             </div>

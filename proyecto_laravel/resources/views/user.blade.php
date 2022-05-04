@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <x-user-delete-confirm />
+    <x-delete-confirm-modal type="user" />
 
     @php
         $default = base64_encode(file_get_contents('https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.webp'));
@@ -48,7 +48,7 @@
                         <div class="mt-5 text-center">
                             <a class="btn btn-secondary me-5" type="button" href="{{ url()->previous() }}">Go back</a>
                             <button class="btn btn-danger ms-5 me-3" type="button" data-bs-toggle="modal"
-                                data-bs-target="#deleteUserModal" onclick="confirmUserDelete({{ $user->id }})">
+                                data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
                                 Delete User
                             </button>
                             <button class="btn btn-primary profile-button" type="submit">Save Profile</button>

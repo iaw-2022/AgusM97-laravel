@@ -27,7 +27,7 @@ class UserController extends Controller
         $user = User::firstWhere('username', $username);
         ImageController::deleteImagesByUser($user->id);
         $user->delete();
-        return redirect('/users')->with('status', 'User Deleted Successfully');;
+        return redirect('/users')->with('status', 'User ' . $user->username . ' deleted successfully');
     }
 
     public function updateUser(Request $request, $username)

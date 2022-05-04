@@ -5,6 +5,12 @@
         </h2>
     </x-slot>
 
+    <x-delete-confirm-modal type="image" />
+
+    @if (session('status'))
+        <h6 class="alert alert-success">{{ session('status') }}</h6>
+    @endif
+
     <div class="container border rounded">
         <table class="table table-hover table-striped caption-top">
             <caption>List of images</caption>
@@ -14,6 +20,7 @@
                 <th scope="col">User</th>
                 <th scope="col">Description</th>
                 <th scope="col">Tags</th>
+                <th scope="col"></th>
             </thead>
 
             <tbody>
@@ -22,7 +29,7 @@
                         <td>{{ $image->id }}</td>
                         <td><img height="100px" src="data:image/gif;base64,{{ $image->file }}"></td>
                         <td>
-                            <a
+                            <a class="link-primary"
                                 href="{{ route('user', ['username' => $image->user->username]) }}">{{ $image->user->username }}</a>
                         </td>
                         <td>{{ $image->description }}</td>
@@ -30,6 +37,29 @@
                             @foreach ($image->tags as $tag)
                                 <span class="badge rounded-pill bg-primary">{{ $tag->name }}</span>
                             @endforeach
+                        </td>
+                        <td>
+                            <div class="btn-group option-buttons" role="group" aria-label="User options">
+
+                                <!-- EDIT BUTTON -->
+                                <a type="button" class="btn btn-secondary"
+                                    href="{{ route('image', ['id' => $image->id]) }}">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+
+                                <!-- DELETE BUTTON -->
+                                <button type="button" class="btn btn-danger delete-user" data-bs-toggle="modal"
+                                    data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $image->id }})">
+                                    <i class="bi bi-trash3"></i>
+                                </button>
+                            </div>
+
+                            <!-- DELETE FORM -->
+                            <form id="form{{ $image->id }}" method="POST"
+                                action="/image/{{ $image->id }}/delete">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                            </form>
                         </td>
                     </tr>
                 @endforeach

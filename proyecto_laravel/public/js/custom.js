@@ -1,9 +1,9 @@
-let userId;
+let idToDelete;
 
-function confirmUserDelete(id){
-    userId = id;
+function confirmDelete(id){
+    idToDelete = id;
 }
 
-function submitUserDelete(){
-    document.getElementById("form"+userId).submit();
+function submitDelete(){
+    document.getElementById("form"+idToDelete).submit();
 }
