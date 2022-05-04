@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/user/{username}', 'showUser')->name('user');
 
         Route::delete('/user/{username}/delete', 'deleteUser')->name('user_delete');
+
+        Route::patch('/user/{username}/update', 'updateUser')->name('user_update');
     });
 
     Route::controller(ImageController::class)->group(function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Controllers\ImageController;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -26,6 +27,15 @@ class UserController extends Controller
         $user = User::firstWhere('username', $username);
         ImageController::deleteImagesByUser($user->id);
         $user->delete();
-        return redirect('/users');
+        return redirect('/users')->with('status', 'User Deleted Successfully');;
+    }
+
+    public function updateUser(Request $request, $username)
+    {
+        $user = User::firstWhere('username', $username);
+        $user->email = $request->input('email');
+        $user->bio = $request->input('bio');
+        $user->update();
+        return redirect()->back()->with('status', 'User Updated Successfully');
     }
 }

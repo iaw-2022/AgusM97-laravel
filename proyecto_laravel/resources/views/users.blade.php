@@ -7,6 +7,10 @@
 
     <x-user-delete-confirm />
 
+    @if (session('status'))
+        <h6 class="alert alert-success">{{ session('status') }}</h6>
+    @endif
+
     <!-- TABLE -->
     <div class="container border rounded">
         <table class="table table-hover table-striped caption-top">
