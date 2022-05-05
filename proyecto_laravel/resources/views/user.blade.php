@@ -20,7 +20,8 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img class="rounded-circle mt-5" width="150px" src="data:image/gif;base64,{{ $picture }}">
+                    <img class="rounded-circle mt-5" width="150px" src="data:image/gif;base64,{{ $picture }}"
+                        alt="Profile picture">
                     <span class="fw-bolder mt-3 fs-5">{{ $user->username }}</span>
                     <span class="text-black-50">Joined in {{ $user->created_at->format('d/m/Y') }}</span>
                 </div>

@@ -15,8 +15,8 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-6 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img class="img-fluid img-thumbnail mx-auto d-block"
-                        src="data:image/gif;base64,{{ $image->file }}">
+                    <img class="img-fluid img-thumbnail mx-auto d-block" src="data:image/gif;base64,{{ $image->file }}"
+                        alt="Image #{{ $image->id }}">
                 </div>
             </div>
             <div class="col-md-4 border-right">
