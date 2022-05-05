@@ -20,6 +20,7 @@
                 <th scope="col">Picture</th>
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
+                <th scope="col">Joined</th>
                 <th scope="col">Email verified at</th>
                 <th scope="col"></th>
             </thead>
@@ -33,6 +34,7 @@
                         </td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
+                        <td>{{ $user->created_at }}</td>
                         <td>{{ $user->email_verified_at }}</td>
                         <td>
                             <div class="btn-group option-buttons" role="group" aria-label="User options">

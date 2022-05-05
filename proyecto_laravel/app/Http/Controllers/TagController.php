@@ -10,7 +10,7 @@ class TagController extends Controller
     public function showAll()
     {
         return view('tags', [
-            'tags' => Tag::orderBy('name', 'asc')->paginate(30)
+            'tags' => Tag::orderBy('name', 'asc')->paginate(45)
         ]);
     }
 

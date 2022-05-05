@@ -23,7 +23,7 @@
     <div class="container border rounded mt-5">
         <div class="row m-2">
             @foreach ($tags as $tag)
-                <div class="tag col border py-3 col-md-auto">
+                <div class="tag col border py-3 px-2 col-md-auto">
                     <span class="badge rounded-pill bg-primary">{{ $tag->name }}</span>
 
                     <!-- DELETE BUTTON -->

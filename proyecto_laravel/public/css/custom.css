@@ -8,6 +8,7 @@
 
 .tag {
     background-color: #fcfcfc;
+    font-size: large;
 }
 
 .tag:hover > .option-buttons {
