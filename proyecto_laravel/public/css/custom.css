@@ -6,6 +6,18 @@
     visibility: visible;
 }
 
+.tag {
+    background-color: #fcfcfc;
+}
+
+.tag:hover > .option-buttons {
+    visibility: visible;
+}
+.tag-input {
+    width: 15em;
+    background-color: whitesmoke;
+}
+
 .profile-pic {
     object-fit: cover; /* Scale the image */
     object-position: center; /* Center the image within the element */

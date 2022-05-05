@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +46,15 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/image/{id}/delete', 'deleteImage')->name('image_delete');
 
         Route::patch('/image/{id}/update', 'updateImage')->name('image_update');
+    });
+
+    Route::controller(TagController::class)->group(function () {
+
+        Route::get('/tags', 'showAll')->name('tags');
+
+        Route::delete('/tag/{id}/delete', 'deleteTag')->name('tag_delete');
+
+        Route::post('/tag/add', 'addTag')->name('tag_add');
     });
 });
 

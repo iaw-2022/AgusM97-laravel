@@ -17,8 +17,12 @@
                         Are you sure you want to delete this image?
                     @break
 
+                    @case('tag')
+                        Are you sure you want to delete this tag?
+                    @break
+
                     @default
-                        null
+                        no message
                 @endswitch
             </div>
             <div class="modal-footer">

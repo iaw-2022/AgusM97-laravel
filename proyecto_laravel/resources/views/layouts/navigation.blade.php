@@ -21,6 +21,9 @@
                 <x-nav-link href="{{ route('images') }}" :active="request()->routeIs('images')">
                     {{ __('Images') }}
                 </x-nav-link>
+                <x-nav-link href="{{ route('tags') }}" :active="request()->routeIs('tags')">
+                    {{ __('Tags') }}
+                </x-nav-link>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -40,7 +43,7 @@
                                 @csrf
 
                                 <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
+                                                            this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
