@@ -17,12 +17,12 @@
     @endif
 
     <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img class="rounded-circle mt-5" width="150px" src="data:image/gif;base64,{{ $picture }}">
                     <span class="fw-bolder mt-3 fs-5">{{ $user->username }}</span>
-                    <span class="text-black-50">edogaru@mail.com.my</span><span> </span>
+                    <span class="text-black-50">Joined in {{ $user->created_at->format('d/m/Y') }}</span>
                 </div>
             </div>
             <div class="col-md-5 border-right">
@@ -45,22 +45,29 @@
                                 <textarea name="bio" rows="6" type="text" class="form-control" placeholder="enter bio">{{ $user->bio }}</textarea>
                             </div>
                         </div>
-                        <div class="mt-5 text-center">
-                            <a class="btn btn-secondary me-5" type="button" href="{{ url()->previous() }}">Go back</a>
-                            <button class="btn btn-danger ms-5 me-3" type="button" data-bs-toggle="modal"
-                                data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
-                                Delete User
-                            </button>
+                        <div class="mt-5 text-center d-flex justify-content-between">
+                            <a class="btn btn-secondary" type="button" href="{{ url()->previous() }}">Go back</a>
+
+                            @if (Auth::user()->id != $user->id)
+                                <button class="btn btn-danger" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
+                                    Delete User
+                                </button>
+                            @endif
+
                             <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
                         </div>
 
                     </form>
 
-                    <!-- DELETE USER FORM -->
-                    <form id="form{{ $user->id }}" method="POST" action="/user/{{ $user->username }}/delete">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                    </form>
+                    @if (Auth::user()->id != $user->id)
+                        <form id="form{{ $user->id }}" method="POST"
+                            action="/user/{{ $user->username }}/delete">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                        </form>
+                    @endif
+
                 </div>
             </div>
             <!--

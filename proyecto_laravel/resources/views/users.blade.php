@@ -42,20 +42,23 @@
                                     href="{{ route('user', ['username' => $user->username]) }}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-
-                                <!-- DELETE BUTTON -->
-                                <button type="button" class="btn btn-danger delete-user" data-bs-toggle="modal"
-                                    data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
-                                    <i class="bi bi-trash3"></i>
-                                </button>
+                                @if (Auth::user()->id != $user->id)
+                                    <!-- DELETE BUTTON -->
+                                    <button type="button" class="btn btn-danger delete-user" data-bs-toggle="modal"
+                                        data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                @endif
                             </div>
 
-                            <!-- DELETE FORM -->
-                            <form id="form{{ $user->id }}" method="POST"
-                                action="/user/{{ $user->username }}/delete">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                            </form>
+                            @if (Auth::user()->id != $user->id)
+                                <!-- DELETE FORM -->
+                                <form id="form{{ $user->id }}" method="POST"
+                                    action="/user/{{ $user->username }}/delete">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

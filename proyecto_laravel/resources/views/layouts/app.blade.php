@@ -33,8 +33,10 @@
         </div>
     </header>
 
+    <x-auth-validation-errors :errors="$errors" />
+
     <!-- Page Content -->
-    <main class="container my-5">
+    <main class=" container my-5">
         {{ $slot }}
     </main>
 </body>
