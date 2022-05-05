@@ -43,6 +43,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/image/{id}', 'showImage')->name('image');
 
         Route::delete('/image/{id}/delete', 'deleteImage')->name('image_delete');
+
+        Route::patch('/image/{id}/update', 'updateImage')->name('image_update');
     });
 });
 

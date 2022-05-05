@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
@@ -25,6 +26,14 @@ class ImageController extends Controller
         $image = Image::find($id);
         $image->delete();
         return redirect('/images')->with('status', 'Image #' . $image->id . ' deleted successfully');
+    }
+
+    public function updateImage(Request $request, $id)
+    {
+        $image = Image::find($id);
+        $image->description = $request->input('description');
+        $image->update();
+        return redirect()->back()->with('status', 'Image Updated Successfully');
     }
 
     public static function deleteImagesByUser($userId)

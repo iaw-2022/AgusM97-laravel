@@ -38,7 +38,7 @@
                                 <span class="badge rounded-pill bg-primary">{{ $tag->name }}</span>
                             @endforeach
                         </td>
-                        <td>
+                        <td class="align-middle">
                             <div class="btn-group option-buttons" role="group" aria-label="User options">
 
                                 <!-- EDIT BUTTON -->
@@ -54,7 +54,7 @@
                                 </button>
                             </div>
 
-                            <!-- DELETE FORM -->
+                            <!-- DELETE IMAGE FORM -->
                             <form id="form{{ $image->id }}" method="POST"
                                 action="/image/{{ $image->id }}/delete">
                                 {{ csrf_field() }}
