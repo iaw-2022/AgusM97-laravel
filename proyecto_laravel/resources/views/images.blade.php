@@ -11,7 +11,7 @@
         <h6 class="alert alert-success">{{ session('status') }}</h6>
     @endif
 
-    <div class="container border rounded">
+    <div class="container border rounded table-responsive">
         <table class="table table-hover table-striped caption-top">
             <caption>List of images</caption>
             <thead class="table-dark">
@@ -27,8 +27,10 @@
                 @foreach ($images as $image)
                     <tr>
                         <td>{{ $image->id }}</td>
-                        <td><img height="100px" src="data:image/gif;base64,{{ $image->file }}"
-                                alt="Image #{{ $image->id }}"></td>
+                        <td class="d-flex justify-content-center">
+                            <img height="120em" src="data:image/gif;base64,{{ $image->file }}"
+                                alt="Image #{{ $image->id }}">
+                        </td>
                         <td>
                             <a class="link-primary"
                                 href="{{ route('user', ['username' => $image->user->username]) }}">{{ $image->user->username }}</a>

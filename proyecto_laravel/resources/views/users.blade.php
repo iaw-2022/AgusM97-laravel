@@ -11,8 +11,7 @@
         <h6 class="alert alert-success">{{ session('status') }}</h6>
     @endif
 
-    <!-- TABLE -->
-    <div class="container border rounded">
+    <div class="container border rounded table-responsive">
         <table class="table table-hover table-striped caption-top">
             <caption>List of users</caption>
             <thead class="table-dark">

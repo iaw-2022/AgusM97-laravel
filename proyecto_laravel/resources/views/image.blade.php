@@ -30,6 +30,16 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12 mt-3">
+                                <label class="labels">By User</label><br>
+                                <a class="link-primary"
+                                    href="{{ route('user', ['username' => $image->user->username]) }}">{{ $image->user->username }}</a><br><br>
+                                <label class="labels">Uploaded at</label><br>
+                                {{ $image->created_at }} <br><br>
+                                <label class="labels">Tags</label><br>
+                                @foreach ($image->tags as $tag)
+                                    <span class="badge rounded-pill bg-primary">{{ $tag->name }}</span>
+                                @endforeach
+                                <br><br>
                                 <label class="labels">Description</label>
                                 <textarea name="description" rows="6" type="text" class="form-control"
                                     placeholder="enter description">{{ $image->description }}</textarea>

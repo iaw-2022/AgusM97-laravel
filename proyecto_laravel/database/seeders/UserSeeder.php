@@ -28,6 +28,6 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        User::factory(5)->create();
+        User::factory(15)->create();
     }
 }
