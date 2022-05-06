@@ -35,11 +35,11 @@ class UserController extends Controller
 
     public function updateUser(Request $request, $username)
     {
+        $user = User::firstWhere('username', $username);
         $request->validate([
-            'email' => 'unique:users'
+            'email' => 'required|unique:users,email,' . $user->id
         ]);
 
-        $user = User::firstWhere('username', $username);
         $user->email = $request->input('email');
         $user->bio = $request->input('bio');
         $user->update();
