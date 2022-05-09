@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
     <div class="container">
         <!-- Logo -->
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="/" aria-label="Home">
             <x-application-logo width="36" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -20,6 +20,9 @@
                 </x-nav-link>
                 <x-nav-link href="{{ route('images') }}" :active="request()->routeIs('images')">
                     {{ __('Images') }}
+                </x-nav-link>
+                <x-nav-link href="{{ route('tags') }}" :active="request()->routeIs('tags')">
+                    {{ __('Tags') }}
                 </x-nav-link>
             </ul>
 
@@ -40,7 +43,7 @@
                                 @csrf
 
                                 <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
+                                                                    this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>

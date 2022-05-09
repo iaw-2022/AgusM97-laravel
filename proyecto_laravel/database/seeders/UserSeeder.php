@@ -27,5 +27,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('dcm'),
             'email_verified_at' => now(),
         ]);
+
+        User::factory(15)->create();
     }
 }

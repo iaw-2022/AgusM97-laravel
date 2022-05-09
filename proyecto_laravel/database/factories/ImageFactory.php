@@ -14,11 +14,14 @@ class ImageFactory extends Factory
      */
     public function definition()
     {
-        $image_link = file_get_contents($this->faker->imageUrl());
-        $enc_data = base64_encode($image_link);
+        $image_file = file_get_contents(
+            $this->faker->imageUrl(random_int(200, 1000), random_int(200, 1000))
+        );
+        $enc_data = base64_encode($image_file);
         return [
-            'user_id' => User::factory(),
+            'user_id' => User::all()->random(1)->pluck('id')->first(),
             'file' => $enc_data,
+            'description' => $this->faker->paragraph(),
         ];
     }
 }
