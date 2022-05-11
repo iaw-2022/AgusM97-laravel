@@ -60,7 +60,6 @@
                         </div>
 
                     </form>
-
                     @if (Auth::user()->id != $user->id)
                         <form id="form{{ $user->id }}" method="POST"
                             action="/user/{{ $user->username }}/delete">
@@ -70,6 +69,21 @@
                     @endif
 
                 </div>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-4 border-right">
+                <h3>Upload a new image</h3>
+                <form method="POST" action="{{ route('image_add', ['username' => $user->username]) }}"
+                    enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <label class="labels">Select a file</label><br>
+                    <input type="file" name="image" accept="image/png, image/jpeg" required><br><br>
+                    <label class="labels">Description</label>
+                    <textarea name="description" rows="5" type="text" class="form-control" placeholder="enter description"></textarea><br><br>
+                    <button class="btn btn-primary profile-button" type="submit">Upload image</button>
+                </form>
             </div>
         </div>
     </div>

@@ -45,4 +45,9 @@ class UserController extends Controller
         $user->update();
         return redirect()->back()->with('status', 'User Updated Successfully');
     }
+
+    public static function getIdByUsername($username)
+    {
+        return User::firstWhere('username', $username)->id;
+    }
 }
