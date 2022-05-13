@@ -37,11 +37,6 @@ class ImageController extends Controller
         return redirect()->back()->with('status', 'Image Updated Successfully');
     }
 
-    public static function deleteImagesByUser($userId)
-    {
-        Image::where('user_id', $userId)->delete();
-    }
-
     public function addImage(Request $request, $username)
     {
         $request->validate([

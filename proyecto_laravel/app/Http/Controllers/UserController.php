@@ -28,7 +28,6 @@ class UserController extends Controller
         if (Auth::user()->username == $username)
             return redirect()->back()->with('errors', ['Can\'t delete active user.']);
         $user = User::firstWhere('username', $username);
-        ImageController::deleteImagesByUser($user->id);
         $user->delete();
         return redirect('/users')->with('status', 'User "' . $user->username . '" deleted successfully.');
     }
