@@ -85,6 +85,43 @@
                     <button class="btn btn-primary profile-button" type="submit">Upload image</button>
                 </form>
             </div>
+
         </div>
+        <div class="row d-flex justify-content-center my-3 py-3">
+
+            @if ($user->images->isNotEmpty())
+                <h3>Uploaded images</h3>
+                <div class="flex-row">
+                    @foreach ($user->images as $image)
+                        <a href="{{ route('image', ['id' => $image->id]) }}">
+                            <img class="mx-3 my-2" height="70px" src="data:image/gif;base64,{{ $image->file }}"
+                                alt="{{ $image->id }}">
+                        </a>
+                    @endforeach
+                </div>
+            @endif
+
+            @if ($user->galleries->isNotEmpty())
+                <h3 class="mt-5">Galleries</h3>
+                <div class="col">
+                    @foreach ($user->galleries as $gallery)
+                        <div class="flex-row">
+                            <h4>{{ $gallery->name }}</h3>
+                                @foreach ($gallery->images as $image)
+                                    <a href="{{ route('image', ['id' => $image->id]) }}">
+                                        <img class="mx-3 my-2" height="70px"
+                                            src="data:image/gif;base64,{{ $image->file }}"
+                                            alt="{{ $image->id }}">
+                                    </a>
+                                @endforeach
+                        </div>
+                    @endforeach
+                </div>
+
+            @endif
+
+        </div>
+
+
     </div>
 </x-app-layout>
