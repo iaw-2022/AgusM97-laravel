@@ -47,7 +47,6 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center d-flex justify-content-between">
-                            <a class="btn btn-secondary" type="button" href="{{ url()->previous() }}">Go back</a>
 
                             @if (Auth::user()->id != $user->id)
                                 <button class="btn btn-danger" type="button" data-bs-toggle="modal"
