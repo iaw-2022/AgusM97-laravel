@@ -18,6 +18,9 @@ class UserSeeder extends Seeder
             'username' => 'AgusM',
             'email' => 'agus91997@gmail.com',
             'password' => bcrypt('agusm'),
+            'picture' => base64_encode(
+                file_get_contents("https://picsum.photos/" . random_int(100, 200) . "/" . random_int(100, 200))
+            ),
             'email_verified_at' => now(),
         ]);
 
@@ -25,9 +28,23 @@ class UserSeeder extends Seeder
             'username' => 'DiegoCM',
             'email' => 'dcm@cs.uns.edu.ar',
             'password' => bcrypt('dcm'),
+            'picture' => base64_encode(
+                file_get_contents("https://picsum.photos/" . random_int(100, 200) . "/" . random_int(100, 200))
+            ),
             'email_verified_at' => now(),
         ]);
 
-        User::factory(15)->create();
+        $enc_data = 
+        User::create([
+            'username' => 'usuario.test',
+            'email' => 'usuario_test@test.com',
+            'password' => bcrypt('UsuarioTest99'),
+            'picture' => base64_encode(
+                file_get_contents("https://picsum.photos/" . random_int(100, 200) . "/" . random_int(100, 200))
+            ),
+            'email_verified_at' => now(),
+        ]);
+
+        User::factory(12)->create();
     }
 }

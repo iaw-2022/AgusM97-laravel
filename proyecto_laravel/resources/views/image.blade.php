@@ -52,9 +52,6 @@
                             </button>
                             <button class="btn btn-primary profile-button" type="submit">Save Changes</button>
                         </div>
-                        <div class="mt-5 text-end">
-                            <a class="btn btn-secondary" type="button" href="{{ url()->previous() }}">Go back</a>
-                        </div>
 
                     </form>
 

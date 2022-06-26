@@ -28,7 +28,6 @@ class UserController extends Controller
         if (Auth::user()->username == $username)
             return redirect()->back()->with('errors', ['Can\'t delete active user.']);
         $user = User::firstWhere('username', $username);
-        ImageController::deleteImagesByUser($user->id);
         $user->delete();
         return redirect('/users')->with('status', 'User "' . $user->username . '" deleted successfully.');
     }
@@ -44,5 +43,10 @@ class UserController extends Controller
         $user->bio = $request->input('bio');
         $user->update();
         return redirect()->back()->with('status', 'User Updated Successfully');
+    }
+
+    public static function getIdByUsername($username)
+    {
+        return User::firstWhere('username', $username)->id;
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
-class ImageFactory extends Factory
+class GalleryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,14 +14,9 @@ class ImageFactory extends Factory
      */
     public function definition()
     {
-
-        $enc_data = base64_encode(
-            file_get_contents("https://picsum.photos/" . random_int(200, 1000) . "/" . random_int(200, 1000))
-        );
         return [
+            'name' => $this->faker->word(),
             'user_id' => User::all()->random(1)->pluck('id')->first(),
-            'file' => $enc_data,
-            'description' => $this->faker->paragraph(),
         ];
     }
 }

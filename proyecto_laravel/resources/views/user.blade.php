@@ -38,8 +38,8 @@
                         <div class="row mt-3">
                             <div class="col-md-12">
                                 <label class="labels">Email Address</label>
-                                <input name="email" type="text" class="form-control" placeholder="enter email address"
-                                    value="{{ $user->email }}">
+                                <input name="email" type="text" class="form-control"
+                                    placeholder="enter email address" value="{{ $user->email }}">
                             </div>
                             <div class="col-md-12 mt-3">
                                 <label class="labels">Bio</label>
@@ -47,7 +47,6 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center d-flex justify-content-between">
-                            <a class="btn btn-secondary" type="button" href="{{ url()->previous() }}">Go back</a>
 
                             @if (Auth::user()->id != $user->id)
                                 <button class="btn btn-danger" type="button" data-bs-toggle="modal"
@@ -60,7 +59,6 @@
                         </div>
 
                     </form>
-
                     @if (Auth::user()->id != $user->id)
                         <form id="form{{ $user->id }}" method="POST"
                             action="/user/{{ $user->username }}/delete">
@@ -72,5 +70,60 @@
                 </div>
             </div>
         </div>
+
+        @if (Auth::user()->id != $user->id)
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-4 border-right">
+                    <h3>Upload a new image</h3>
+                    <form method="POST" action="{{ route('image_add', ['username' => $user->username]) }}"
+                        enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <label class="labels">Select a file</label><br>
+                        <input type="file" name="image" accept="image/png, image/jpeg" required><br><br>
+                        <label class="labels">Description</label>
+                        <textarea name="description" rows="5" type="text" class="form-control" placeholder="enter description"></textarea><br><br>
+                        <button class="btn btn-primary profile-button" type="submit">Upload image</button>
+                    </form>
+                </div>
+
+            </div>
+        @endif
+
+        <div class="row d-flex justify-content-center my-3 py-3">
+
+            @if ($user->images->isNotEmpty())
+                <h3>Uploaded images</h3>
+                <div class="flex-row">
+                    @foreach ($user->images as $image)
+                        <a href="{{ route('image', ['id' => $image->id]) }}">
+                            <img class="mx-3 my-2" height="70px" src="data:image/gif;base64,{{ $image->file }}"
+                                alt="{{ $image->id }}">
+                        </a>
+                    @endforeach
+                </div>
+            @endif
+
+            @if ($user->galleries->isNotEmpty())
+                <h3 class="mt-5">Galleries</h3>
+                <div class="col">
+                    @foreach ($user->galleries as $gallery)
+                        <div class="flex-row">
+                            <h4>{{ $gallery->name }}</h3>
+                                @foreach ($gallery->images as $image)
+                                    <a href="{{ route('image', ['id' => $image->id]) }}">
+                                        <img class="mx-3 my-2" height="70px"
+                                            src="data:image/gif;base64,{{ $image->file }}"
+                                            alt="{{ $image->id }}">
+                                    </a>
+                                @endforeach
+                        </div>
+                    @endforeach
+                </div>
+
+            @endif
+
+        </div>
+
+
     </div>
 </x-app-layout>

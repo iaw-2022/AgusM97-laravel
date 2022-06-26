@@ -14,8 +14,8 @@ class CreateImageTagTable extends Migration
     public function up()
     {
         Schema::create('image_tag', function (Blueprint $table) {
-            $table->foreignId('image_id')->cascadeOnDelete();
-            $table->foreignId('tag_id')->cascadeOnDelete();
+            $table->foreignId('image_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
         });
     }
 

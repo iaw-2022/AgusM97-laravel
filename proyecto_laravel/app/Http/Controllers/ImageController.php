@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 
 class ImageController extends Controller
 {
@@ -36,8 +37,18 @@ class ImageController extends Controller
         return redirect()->back()->with('status', 'Image Updated Successfully');
     }
 
-    public static function deleteImagesByUser($userId)
+    public function addImage(Request $request, $username)
     {
-        Image::where('user_id', $userId)->delete();
+        $request->validate([
+            'image' => 'required|mimes:jpg,png'
+        ]);
+
+        $request->image->store('upload', 'public');
+        $image = new Image;
+        $image->user_id = UserController::getIdByUsername($username);
+        $image->description = $request->description;
+        $image->file = base64_encode(file_get_contents($request->image->path()));
+        $image->save();
+        return redirect('/image/' . $image->id)->with('status', 'Image uploaded successfully.');
     }
 }

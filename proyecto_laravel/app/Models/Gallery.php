@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class Gallery extends Model
 {
     use HasFactory;
 
@@ -14,13 +14,8 @@ class Image extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function tags()
+    public function images()
     {
-        return $this->belongsToMany(Tag::class);
-    }
-
-    public function galleries()
-    {
-        return $this->belongsToMany(Gallery::class);
+        return $this->belongsToMany(Image::class);
     }
 }

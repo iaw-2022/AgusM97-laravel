@@ -46,6 +46,8 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/image/{id}/delete', 'deleteImage')->name('image_delete');
 
         Route::patch('/image/{id}/update', 'updateImage')->name('image_update');
+
+        Route::post('/user/{username}/add/image', 'addImage')->name('image_add');
     });
 
     Route::controller(TagController::class)->group(function () {
