@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        @if (Auth::user()->id != $user->id)
+        @if (Auth::user()->id == $user->id)
             <div class="row d-flex justify-content-center">
                 <div class="col-md-4 border-right">
                     <h3>Upload a new image</h3>
