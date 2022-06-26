@@ -15,7 +15,7 @@ class GallerySeeder extends Seeder
      */
     public function run()
     {
-        Gallery::factory(20)->create()
+        Gallery::factory(7)->create()
             ->each(function ($gallery) {
                 $randomImages = Image::all()->random(rand(1, 6))->pluck('id');
                 $gallery->images()->attach($randomImages);

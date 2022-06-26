@@ -38,8 +38,8 @@
                         <div class="row mt-3">
                             <div class="col-md-12">
                                 <label class="labels">Email Address</label>
-                                <input name="email" type="text" class="form-control" placeholder="enter email address"
-                                    value="{{ $user->email }}">
+                                <input name="email" type="text" class="form-control"
+                                    placeholder="enter email address" value="{{ $user->email }}">
                             </div>
                             <div class="col-md-12 mt-3">
                                 <label class="labels">Bio</label>
@@ -71,21 +71,24 @@
             </div>
         </div>
 
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-4 border-right">
-                <h3>Upload a new image</h3>
-                <form method="POST" action="{{ route('image_add', ['username' => $user->username]) }}"
-                    enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <label class="labels">Select a file</label><br>
-                    <input type="file" name="image" accept="image/png, image/jpeg" required><br><br>
-                    <label class="labels">Description</label>
-                    <textarea name="description" rows="5" type="text" class="form-control" placeholder="enter description"></textarea><br><br>
-                    <button class="btn btn-primary profile-button" type="submit">Upload image</button>
-                </form>
-            </div>
+        @if (Auth::user()->id != $user->id)
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-4 border-right">
+                    <h3>Upload a new image</h3>
+                    <form method="POST" action="{{ route('image_add', ['username' => $user->username]) }}"
+                        enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <label class="labels">Select a file</label><br>
+                        <input type="file" name="image" accept="image/png, image/jpeg" required><br><br>
+                        <label class="labels">Description</label>
+                        <textarea name="description" rows="5" type="text" class="form-control" placeholder="enter description"></textarea><br><br>
+                        <button class="btn btn-primary profile-button" type="submit">Upload image</button>
+                    </form>
+                </div>
 
-        </div>
+            </div>
+        @endif
+
         <div class="row d-flex justify-content-center my-3 py-3">
 
             @if ($user->images->isNotEmpty())
