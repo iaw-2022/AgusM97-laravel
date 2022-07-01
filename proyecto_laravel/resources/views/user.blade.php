@@ -5,7 +5,9 @@
         </h2>
     </x-slot>
 
-    <x-delete-confirm-modal type="user" />
+    @can('delete')
+        <x-delete-confirm-modal type="user" />
+    @endcan
 
     @php
         $default = base64_encode(file_get_contents('https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.webp'));
@@ -48,12 +50,14 @@
                         </div>
                         <div class="mt-5 text-center d-flex justify-content-between">
 
-                            @if (Auth::user()->id != $user->id)
-                                <button class="btn btn-danger" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
-                                    Delete User
-                                </button>
-                            @endif
+                            @can('delete')
+                                @if (Auth::user()->id != $user->id)
+                                    <button class="btn btn-danger" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
+                                        Delete User
+                                    </button>
+                                @endif
+                            @endcan
 
                             <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
                         </div>

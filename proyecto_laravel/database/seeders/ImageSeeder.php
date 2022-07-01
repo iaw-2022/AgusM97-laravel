@@ -15,7 +15,7 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        Image::factory(30)->create()
+        Image::factory(25)->create()
             ->each(function ($image) {
                 $randomTags = Tag::all()->random(rand(1, 6))->pluck('id');
                 $image->tags()->attach($randomTags);

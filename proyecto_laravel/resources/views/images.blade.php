@@ -5,7 +5,9 @@
         </h2>
     </x-slot>
 
-    <x-delete-confirm-modal type="image" />
+    @can('delete')
+        <x-delete-confirm-modal type="image" />
+    @endcan
 
     @if (session('status'))
         <h6 class="alert alert-success">{{ session('status') }}</h6>
@@ -51,10 +53,12 @@
                                 </a>
 
                                 <!-- DELETE BUTTON -->
-                                <button type="button" class="btn btn-danger delete-user" data-bs-toggle="modal"
-                                    data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $image->id }})">
-                                    <i class="bi bi-trash3"></i>
-                                </button>
+                                @can('delete')
+                                    <button type="button" class="btn btn-danger delete-user" data-bs-toggle="modal"
+                                        data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $image->id }})">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                @endcan
                             </div>
 
                             <!-- DELETE IMAGE FORM -->

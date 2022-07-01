@@ -41,25 +41,28 @@
                                 @endforeach
                                 <br><br>
                                 <label class="labels">Description</label>
-                                <textarea name="description" rows="6" type="text" class="form-control"
-                                    placeholder="enter description">{{ $image->description }}</textarea>
+                                <textarea name="description" rows="6" type="text" class="form-control" placeholder="enter description">{{ $image->description }}</textarea>
                             </div>
                         </div>
                         <div class="mt-5 text-end">
-                            <button class="btn btn-danger me-3" type="button" data-bs-toggle="modal"
-                                data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $image->id }})">
-                                Delete Image
-                            </button>
+                            @can('delete')
+                                <button class="btn btn-danger me-3" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $image->id }})">
+                                    Delete Image
+                                </button>
+                            @endcan
                             <button class="btn btn-primary profile-button" type="submit">Save Changes</button>
                         </div>
 
                     </form>
 
                     <!-- DELETE IMAGE FORM -->
-                    <form id="form{{ $image->id }}" method="POST" action="/image/{{ $image->id }}/delete">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                    </form>
+                    @can('delete')
+                        <form id="form{{ $image->id }}" method="POST" action="/image/{{ $image->id }}/delete">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                        </form>
+                    @endcan
                 </div>
             </div>
         </div>
