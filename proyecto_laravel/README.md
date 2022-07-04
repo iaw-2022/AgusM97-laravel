@@ -7,3 +7,8 @@ Proyecto de implementación de backend utilizando el framework Laravel.
 ### Deploy en Heroku
 
 [Link](http://proyecto-laravel-agusm97.herokuapp.com)
+
+### Usuario de test
+
+-   Email: usuario_test@test.com
+-   Password: UsuarioTest99
