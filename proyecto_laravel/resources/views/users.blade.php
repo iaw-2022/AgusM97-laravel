@@ -43,13 +43,16 @@
                                     href="{{ route('user', ['username' => $user->username]) }}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                @if (Auth::user()->id != $user->id)
-                                    <!-- DELETE BUTTON -->
-                                    <button type="button" class="btn btn-danger delete-user" data-bs-toggle="modal"
-                                        data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
-                                        <i class="bi bi-trash3"></i>
-                                    </button>
-                                @endif
+
+                                @can('delete')
+                                    @if (Auth::user()->id != $user->id)
+                                        <!-- DELETE BUTTON -->
+                                        <button type="button" class="btn btn-danger delete-user" data-bs-toggle="modal"
+                                            data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $user->id }})">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                    @endif
+                                @endcan
                             </div>
 
                             @if (Auth::user()->id != $user->id)

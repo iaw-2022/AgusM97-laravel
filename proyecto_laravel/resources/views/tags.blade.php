@@ -26,15 +26,17 @@
                 <div class="tag col border py-3 px-2 col-md-auto">
                     <span class="badge rounded-pill bg-primary">{{ $tag->name }}</span>
 
-                    <button type="button" class="btn btn-danger btn-sm option-buttons ms-2" data-bs-toggle="modal"
-                        data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $tag->id }})">
-                        <i class="bi bi-trash3"></i>
-                    </button>
+                    @can('delete')
+                        <button type="button" class="btn btn-danger btn-sm option-buttons ms-2" data-bs-toggle="modal"
+                            data-bs-target="#deleteUserModal" onclick="confirmDelete({{ $tag->id }})">
+                            <i class="bi bi-trash3"></i>
+                        </button>
 
-                    <form id="form{{ $tag->id }}" method="POST" action="/tag/{{ $tag->id }}/delete">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                    </form>
+                        <form id="form{{ $tag->id }}" method="POST" action="/tag/{{ $tag->id }}/delete">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                        </form>
+                    @endcan
                 </div>
             @endforeach
         </div>
